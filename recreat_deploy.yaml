@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: my-deploy
+  name: my-deploy
+spec:
+  strategy:
+   type: Recreate
+  replicas: 10
+  selector:
+    matchLabels:
+      app: my-deploy
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: my-deploy
+    spec:
+      containers:
+        - image: httpd:2.4
+          name: httpd
+
+
